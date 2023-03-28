@@ -1,31 +1,32 @@
 ---
-title: "Aaron M. Kessler"
+title: "Hannah Loder"
 about:
   template: jolla
-  image: testimage.jpg
+  image: HL_Pic_Github.jpg
   links:
-    - icon: twitter
-      text: twitter
-      href: https://twitter.com/akesslerdc
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/hannah-loder-962450160/
     - icon: github
       text: Github
-      href: https://github.com/amkessler
+      href: https://github.com/hanlod
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/HannahLoder1
 ---
 
-Hi, I'm Aaron and I'm a reporter at the AP in Washington. I like data, the ocean and F1 racing. I've got two little ones and enjoy watching them grow up.
+Hi, I'm Hannah, and I am a journalist working to spread positivity through the work I produce. I am a student at George Washington University in the class of 2023 studying Journalism & Mass Communication and Spanish/Latin American Languages, Literatures & Cultures. 
 
 ## Education
 
-University of Missouri tktktktk
-
-Columbia University
-
-Washington University in St. Louis
+The George Washington University
 
 ## Skills
 
 Reporting and Writing
 
-Data Analysis
+Audio and Video Editing
 
-FOIA laws
+Graphic Design
+
+Data Analysis
