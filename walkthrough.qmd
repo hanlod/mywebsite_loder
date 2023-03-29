@@ -1,6 +1,6 @@
 ---
 title: "Analysis Walkthrough Example"
-author: "Aaron Kessler"
+author: "Hannah Loder"
 format:
   html:
     self-contained: true
@@ -9,27 +9,221 @@ format:
 
 ---
 
-We'll start by loading. our libraries.
 
 ```{r}
 
+#load libraries
 library(tidyverse)
 library(lubridate)
+library(here)
+
+#load data
+payments <- readRDS("trump_campaign_payments.rds")
+
 ```
 
-We're going to look at some sample data from Texas on housing prices throughout the state.
+## Introduction
 
-First we'll load data.
+**What data will you be working with?**
+
+A dataset of disbursements (payments and purchases) by the Donald J. Trump for President campaign committee during the 2020 election cycle. The included payments are from 2017 and 2018.
+
+This data and examples were developed as part of the NYT Open training, which we've adapted from here. Note that the dataset has been alterted for instructional purposes, so doesn't represent the original FEC data in its entirety.
+
+In the environment tab in the upper right, click on the `payments` dataset to open the RStudio viewer to examine the data. You can also run the chunk below as well to bring up a slice of the data.
 
 ```{r}
-# run this line below load the data for this assignment
-# we'll use a built-in dataset from the ggplot2 package (loaded as party of the tidyverse)
-housesales <- ggplot2::txhousing
+
+head(payments)
+
+
 ```
 
-Now, let's see what the data looks like
+## Before you begin
+
+Take a moment to look at the various categories included for each disbursement.
+
+-   Notice that there are several date-related fields:
+
+    -   FEC election cycle
+
+    -   report year
+
+    -   election type
+
+    -   disbursement date
+
+-   There are a few fields about the recipient. Along with city and state, you have:
+
+    -   the recipient name
+
+    -   the payee's first and last name (an individual who was paid for the "recipient") and
+
+    -   the entity type (individual v. organization)
+
+## Initial Narrative Questions
+
+Without doing any analysis yet, what are three questions you might try to answer using this dataset? Write your narrative answers in the spaces below.
+
+1.  Did Trump disburse more money to individuals or organizations? 
+
+2.  Which states did he send the most money to? (including individuals and organizations)
+
+3.  During which election cycle did he spend the most money? 
+
+## Coding Assignment Questions
+
+**Please write your R tidyverse code to help answer the questions below in the provided R chunks. You can make more than one chunk if you prefer.**
+
+**Also, describe what you're doing either in text out "in the open" above the chunk, or in comments (prefaced by #) in the R chunk itself.**
+
+**You'll need to use grouping, filtering, or a combination of both to find the answers. Remember that R is case-sensitive when you refer to any text values within the columns**
+
+<br>
+
+How much was spent in the 2017 vs. 2018 reporting year?
 
 ```{r}
-housesales %>% 
-  head()
+
+# I grouped by reporting year because 2017 and 2018 are the only reporting years,
+# and I made a category for the sum to find the total spent. 
+
+payments %>% 
+  group_by(report_year) %>% 
+  summarise(totalspent = sum(disbursement_amount))
+  
+
+
+```
+
+Tally the total overall disbursement amounts for each month (distinguishing between say, Oct. 2018 v. Oct. 2019). In which month was spending the highest?
+
+```{r}
+
+# I grouped by month and year and included the summarise function to find the total
+# disbursement amount each month in each year. Then I arranged it to show the month 
+# with the highest spending first. 
+
+payments %>% 
+  group_by(disbursement_month, disbursement_year) %>% 
+  summarise(totalspent = sum(disbursement_amount)) %>% 
+  arrange(desc(totalspent))
+
+# Spending was the highest in October 2018. 
+
+```
+
+Which recipient (recipient_name) was paid the most in the 2020 election cycle?
+
+```{r}
+
+# I filtered by the 2020 election cycle and grouped by recipient name. Then I created
+# a summarise function to tell me the total amount the recipient received. Then I arranged that
+# to give the highest number first. 
+
+payments %>% 
+  filter(election_cycle == 2020) %>% 
+  group_by(recipient_name) %>% 
+  summarise(recipreceive = sum(disbursement_amount)) %>% 
+  arrange(desc(recipreceive))
+  
+# American Made Media Consultants, LLC, received the most money in the 2020 election cycle.
+
+
+
+```
+
+Look at what this recipient was paid for. What service or good (see the "disbursement_description") were they paid the most for?
+
+```{r}
+
+# I filtered by election cycle to only show the 2020 cycle, and I filtered by the 
+# specific recipient I'm looking at. I grouped by the disbursement description and totaled
+# up the amount received for that description. Then I arranged it in descending order to 
+# show what they were paid most for. 
+
+payments %>% 
+  filter(election_cycle == 2020, recipient_name == "AMERICAN MADE MEDIA CONSULTANTS, LLC") %>% 
+  group_by(disbursement_description) %>% 
+  summarise(recipreceive = sum(disbursement_amount)) %>% 
+  arrange(desc(recipreceive))
+
+# American Made Media Consultants, LLC, was paid most for "placed media".
+
+```
+
+What's the most common category overall (see "disbursement_description") the campaign spent money on?
+
+```{r}
+
+# I grouped by disbursement description for all of the data. Then I used the summarise 
+# function to count how many times that description showed up. Then I arranged it in 
+# descending order to see what showed up the most.
+
+payments %>% 
+  group_by(disbursement_description) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count))
+
+# The campaign spent money on "merchant fees" most often. 
+
+```
+
+Who were the 5 biggest recipients of campaign spending on "LEGAL CONSULTING"..?
+
+```{r}
+
+# I filtered by "legal consulting" and then I grouped by recipients. Then I used the sum 
+# function to find out who received the most money. I arranged it in descending order
+# and chose to only see the top 5 recipients. 
+
+payments %>% 
+  filter(disbursement_description == "LEGAL CONSULTING") %>% 
+  group_by(recipient_name) %>% 
+  summarise(totalamount = sum(disbursement_amount)) %>% 
+  arrange(desc(totalamount)) %>% 
+  top_n(5)
+
+
+# The 5 biggest recipients are listed below when the code is run. 
+
+```
+
+
+Who are the top 5 individuals (vs. organization) were paid by the campaign committee?
+
+```{r}
+
+# I grouped by entity type and recipient name. Then I totaled up how much they were paid 
+# and organized that in descending order. Then I chose to show the top 5 answers for 
+# each entity. 
+
+payments %>% 
+  group_by(entity_type, recipient_name) %>% 
+  summarise(amountpaid = sum(disbursement_amount)) %>% 
+  arrange(desc(amountpaid)) %>% 
+  top_n(5)
+  
+# The top 5 individuals and organizations are listed below when the code is run. 
+
+```
+
+
+For the indvidual who was paid the most, which payment category (disbursement_description) was the top one for him or her? And how much money were they paid in that category?
+
+```{r}
+
+# I filtered by Michael Glassner and grouped by the disbursement description. Then I 
+# totaled the amount for the category, organized it in descending order and chose to
+# only show the top answer. 
+
+payments %>% 
+  filter(recipient_name == "GLASSNER, MICHAEL") %>% 
+  group_by(disbursement_description) %>% 
+  summarise(amountcategory = sum(disbursement_amount)) %>% 
+  arrange(desc(amountcategory)) %>% 
+  top_n(1)
+
+# The payment category was "payroll," and Michael was paid 499000 dollars. 
+
 ```
