@@ -32,7 +32,7 @@
     "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Hi there this is my portfolio page! Yay…\nHere’s another line for good measure."
+    "text": "Explore my projects below. I use different mediums to share important stories impacting my community and the nation. I value the perspectives I am able to lift up in my reporting. I am grateful for the opportunity to meet new people and help tell their stories."
   },
   {
     "objectID": "about.html",
@@ -40,5 +40,12 @@
     "title": "More Stuff About Me",
     "section": "",
     "text": "About this site\nHere is some new stuff!\n\n1 + 1 \n\n[1] 2"
+  },
+  {
+    "objectID": "portfolio.html#street-sense-media-articles",
+    "href": "portfolio.html#street-sense-media-articles",
+    "title": "Portfolio",
+    "section": "Street Sense Media Articles",
+    "text": "Street Sense Media Articles\nI wrote these articles during an editorial internship with Street Sense Media in the summer of 2022. I did the reporting, writing, worked with editors and took photos for the articles.\n\nTiny homes, big change: How DC can adapt tiny homes to fight homelessness \n\n\n\nThe first Eden Village in Springfield has tiny homes facing each other. Photo by Hannah Loder\n\n\n\n\nNew number, same care: DC residents can now call 988 to receive support during a mental health crisis\n\n\n\nThe 988 Suicide and Crisis Lifeline is the new three-digit dialing code for behavioral health emergencies. Photo by Hannah Loder"
   }
 ]

@@ -2,6 +2,18 @@
 title: "Portfolio"
 ---
 
-Hi there this is my portfolio page! Yay...
-  
-Here's another line for good measure.
+Explore my projects below. I use different mediums to share important stories impacting my community and the nation. I value the perspectives I am able to lift up in my reporting. I am grateful for the opportunity to meet new people and help tell their stories.
+
+## Street Sense Media Articles
+
+I wrote these articles during an editorial internship with Street Sense Media in the summer of 2022. I did the reporting, writing, worked with editors and took photos for the articles.
+
+#### [Tiny homes, big change: How DC can adapt tiny homes to fight homelessness](https://www.streetsensemedia.org/article/tiny-homes-eden-village/#.ZCN9my-B2qD) 
+
+[![The first Eden Village in Springfield has tiny homes facing each other. Photo by Hannah Loder](IMG_2768_edit.jpg){fig-alt="The tiny homes in Eden Village"}](https://www.streetsensemedia.org/article/tiny-homes-eden-village/#.ZCN9my-B2qD)
+
+#### [New number, same care: DC residents can now call 988 to receive support during a mental health crisis](New number, same care: DC residents can now call 988 to receive support during a mental health crisis)
+
+[![The 988 Suicide and Crisis Lifeline is the new three-digit dialing code for behavioral health emergencies. Photo by Hannah Loder](IMG_2742_edit.jpg){fig-alt="A phone dials 988"}](https://www.streetsensemedia.org/article/new-number-same-care-dc-residents-can-now-call-988-to-receive-support-during-a-mental-health-crisis/#.ZCN_mC-B2qB)
+
+#### [One Journey Festival showcases what it means to be a refugee](One Journey Festival showcases what it means to be a refugee)
