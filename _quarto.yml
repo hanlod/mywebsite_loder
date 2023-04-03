@@ -17,6 +17,7 @@ website:
       - portfolio.qmd
       - walkthrough.qmd
       - testpage.qmd
+      - classarticle.qmd
       
 
 
