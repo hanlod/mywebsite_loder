@@ -27,3 +27,11 @@ I created these audio and video projects using Adobe Audition, After Effects and
 #### [(In)vironmental Justice: Relationships to water in the Chesapeake Bay](https://planetforward.org/story/invironmental-justice-chesapeake-bay/)
 
 [![A view of the Chesapeake Bay near Northeast, Maryland. Steve Adams/Unsplash](https://planetforward.org/wp-content/uploads/2023/03/steve-adams-ckzTyM9SbMs-unsplash-scaled.jpg){fig-alt="Chesapeake Bay image"}](https://planetforward.org/story/invironmental-justice-chesapeake-bay/)
+
+#### [**Hooked on fishing: Hains Point fishers discuss the regulations surrounding their favorite pastime**](https://planetforward.org/story/hooked-fishing-hains-point/)
+
+[![This short documentary explores fishing of the Potomac River in Washington D.C., where regulations allow fishers to consume portion of their catches, despite warnings from local river-keepers.](NewThumbnail_News_HL.jpg){fig-alt="Hooked on Fishing thumbnail"}](https://planetforward.org/story/hooked-fishing-hains-point/)
+
+#### [**A moment for change: Social and environmental critique through poetry**](https://planetforward.org/story/moment-change-poetry/)
+
+[![Naomi Ayala is a D.C.-based poet and educator from Puerto Rico, focusing on social and environmental justice.](Mini_Doc_Thumbnail_HL.jpg){fig-alt="Naomi Ayala walking with text on screen, \"A Moment for Change.\""}](https://planetforward.org/story/moment-change-poetry/)
