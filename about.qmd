@@ -2,4 +2,4 @@
 title: "Resumé"
 ---
 
-![](Loder_Hannah_Creative_Resume_2023.pdf)
+![](Loder_Hannah_Creative_Resume_2023.pdf){width="8.5in"}
