@@ -1,13 +1,5 @@
 ---
-title: "More Stuff About Me"
+title: "Resumé"
 ---
 
-About this site  
-  
-Here is some new stuff!
-
-```{r}
-1 + 1 
-
-
-```
+![](Loder_Hannah_Creative_Resume_2023.pdf)
