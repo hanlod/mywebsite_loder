@@ -18,6 +18,7 @@ website:
       - walkthrough.qmd
       - testpage.qmd
       - classarticle.qmd
+      - mapexample.qmd
 
 
       
