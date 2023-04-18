@@ -6,11 +6,12 @@ execute:
 format:
   html:
     self-contained: true
+    code-fold: true
     code-tools: true
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
-
+knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 library(janitor)
@@ -18,30 +19,17 @@ library(kableExtra)
 library(here)
 options(scipen = 999)
 options(stringsAsFactors = FALSE)
-
-
-#load saved joined data file from previous script
-joined_vacomparison <- readRDS(here("processed_data", "joined_vacomparison.rds"))
-
-
-
-```
-
-## Charting top 10 counties where Youngkin outperformed Trump:
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
-#Load libraries
-library(tidyverse) 
-library(janitor) 
 library(readxl) 
 library(scales)
 library(lubridate)
 library(ggthemes)
 library(esquisse)
 
+joined_vacomparison <- readRDS(here("joined_vacomparison.rds"))
+
 ```
+
+## Charting top 10 counties where Youngkin outperformed Trump:
 
 ```{r}
 toptencounties_YO <- joined_vacomparison %>% 
@@ -63,7 +51,7 @@ ggplot(toptencounties_YO, aes(x = locality, y = youngkin_overperform)) +
 
 ## Charting top 10 counties where Biden outperformed McAuliffe:
 
-McAuliffe did not outperform Biden in any country, as referenced in the data. For this reason, I decided to chart the top ten counties where Biden outperformed McAuliffe.
+McAuliffe did not outperform Biden in any county, as referenced in the data. For this reason, I decided to chart the top ten counties where Biden outperformed McAuliffe.
 
 ```{r}
 toptencounties_BO <- joined_vacomparison %>% 
