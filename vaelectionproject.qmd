@@ -24,17 +24,30 @@ library(scales)
 library(lubridate)
 library(ggthemes)
 library(esquisse)
+library(tidyverse)
+library(tigris)
+library(sf)
+library(tidycensus)
+library(htmltools)
+library(janitor)
+library(here)
+library(mapview)
+library(leafsync)
+library(leaflet.extras2)
+options(tigris_class = "sf")
 
 joined_vacomparison <- readRDS(here("joined_vacomparison.rds"))
 
 ```
 
-## Charting top 10 counties where Youngkin outperformed Trump:
+## Charting top 5 counties where Youngkin outperformed Trump:
+
+Youngkin outperformed Trump in every Virginia county in the 2020 election. Below is the process I did for charting the top 5 counties where Youngkin performed better than Trump, meaning the places where the difference between their percentages of the vote was greatest.
 
 ```{r}
 toptencounties_YO <- joined_vacomparison %>% 
   arrange(desc(youngkin_overperform)) %>% 
-  head(10)
+  head(5)
 ```
 
 ```{r}
@@ -44,19 +57,86 @@ ggplot(toptencounties_YO, aes(x = locality, y = youngkin_overperform)) +
   scale_y_continuous(name = "Percent Overperform", labels = scales::comma) +
   scale_x_discrete(name = "County") +
   labs(title = "Where Youngkin Outperformed Trump (%)", 
-       subtitle = "Top 10 VA Counties 2020",
+       subtitle = "Top 5 VA Counties 2020",
        caption = "VA Department of Elections") +
   theme_fivethirtyeight()
 ```
 
-## Charting top 10 counties where Biden outperformed McAuliffe:
+## Mapping Youngkin's Performance in Relation to Trump
+
+Below is a map showing the difference in the percentage of votes Youngkin received in Virginia counties and those that Trump received. The map uses shading to show the degree to which Youngkin outperformed Trump in every county.
+
+```{r}
+ census_api_key("2a6f8c21a30d3024e038d67d7d4eba647dc79cd4", install=TRUE, overwrite=TRUE) 
+```
+
+```{r}
+myvars <- c(totalpop = "B01003_001",
+            medincome = "B19013_001",
+            medage = "B01002_001"
+)
+```
+
+```{r}
+va_counties_withgeo <- get_acs(geography = "county",
+                       variables = c(myvars),
+                       state = "VA",
+                       output = "wide",
+                       geometry = TRUE)
+
+va_counties_withgeo
+```
+
+```{r}
+va_counties_withgeo <- va_counties_withgeo %>% 
+  mutate(
+    NAME = str_replace(NAME, ", Virginia", ""),
+    NAME = str_to_upper(NAME)
+  )
+```
+
+```{r}
+joined <- left_join(va_counties_withgeo, joined_vacomparison, by = c("NAME" = "locality"))
+```
+
+```{r}
+
+mylabel <- glue::glue("{joined$NAME} {joined$youngkin_overperform}")
+
+
+mapview(joined, zcol = "youngkin_overperform", 
+         col.regions = RColorBrewer::brewer.pal(9, "Reds"), 
+         alpha.regions = 1,
+         label = mylabel)
+
+```
+
+```{r}
+mypopup <- glue::glue("<strong>{joined$NAME}</strong><br />
+                      Percent: {joined$youngkin_overperform}<br />
+                      Total Population: {joined$totalpopE}" ) %>% 
+  lapply(htmltools::HTML)
+```
+
+```{r}
+head(mypopup)
+```
+
+```{r}
+mapview(joined, zcol = "youngkin_overperform", 
+         col.regions = RColorBrewer::brewer.pal(9, "Reds"), 
+         alpha.regions = 1,
+         popup = mypopup, label = mylabel)
+```
+
+## Charting top 5 counties where Biden outperformed McAuliffe:
 
 McAuliffe did not outperform Biden in any county, as referenced in the data. For this reason, I decided to chart the top ten counties where Biden outperformed McAuliffe.
 
 ```{r}
 toptencounties_BO <- joined_vacomparison %>% 
   arrange(desc(biden_overperform)) %>% 
-  head(10)
+  head(5)
 ```
 
 ```{r}
@@ -66,8 +146,7 @@ ggplot(toptencounties_BO, aes(x = locality, y = biden_overperform)) +
   scale_y_continuous(name = "Percent Overperform", labels = scales::comma) +
   scale_x_discrete(name = "County") +
   labs(title = "Where Biden Outperformed McAuliffe (%)", 
-       subtitle = "Top 10 VA Counties 2020",
+       subtitle = "Top 5 VA Counties 2020",
        caption = "VA Department of Elections") +
   theme_fivethirtyeight()
 ```
-
