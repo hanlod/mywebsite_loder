@@ -163,3 +163,46 @@ mapview(joined, zcol = "biden_overperform",
          label = map2label, popup = popupmap2)
 ```
 
+## Charting Where Youngkin Got the Highest Percentage of the Vote
+
+Youngkin won the Virginia Governor race in 2020. Below is the code I used to create a chart showing the five counties in Virginia where Youngkin got the highest percentage of the vote.
+
+```{r}
+youngkin_top5 <- joined_vacomparison %>% 
+  arrange(desc(pct_youngkin)) %>% 
+  head(5)
+```
+
+```{r}
+ggplot(youngkin_top5, aes(x = locality, y = pct_youngkin)) +
+  geom_col(color = "#FF3636", fill = "#FF3636") +
+  coord_flip() +
+  scale_y_continuous(name = "Percent Youngkin", labels = scales::comma) +
+  scale_x_discrete(name = "County") +
+  labs(title = "Youngkin Percent of Votes", 
+       subtitle = "Top 5 VA Counties 2020",
+       caption = "VA Department of Elections") +
+  theme_fivethirtyeight()
+```
+
+## Charting Where McAuliffe Got the Highest Percentage of the Vote
+
+While McAuliffe did not won the Virginia Governor race, he did receive the highest percentage of the vote in some counties. I created a chart showing the top five counties in Virginia where McAuliffe got the highest percentage of the vote.
+
+```{r}
+mcauliffe_top5 <- joined_vacomparison %>% 
+  arrange(desc(pct_mcauliffe)) %>% 
+  head(5)
+```
+
+```{r}
+ggplot(mcauliffe_top5, aes(x = locality, y = pct_mcauliffe)) +
+  geom_col(color = "#4CA0FF", fill = "#4CA0FF") +
+  coord_flip() +
+  scale_y_continuous(name = "Percent McAuliffe", labels = scales::comma) +
+  scale_x_discrete(name = "County") +
+  labs(title = "McAuliffe Percent of Votes", 
+       subtitle = "Top 5 VA Counties 2020",
+       caption = "VA Department of Elections") +
+  theme_fivethirtyeight()
+```
