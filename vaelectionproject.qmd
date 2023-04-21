@@ -40,6 +40,14 @@ joined_vacomparison <- readRDS(here("joined_vacomparison.rds"))
 
 ```
 
+```{r}
+# cleaning up percentages 
+joined_vacomparison <- joined_vacomparison %>% 
+  mutate(youngkin_overperform = round_half_up(youngkin_overperform, 2),
+         mcauliffe_underperform = round_half_up(mcauliffe_overperform, 2), 
+         biden_overperform = round_half_up(biden_overperform, 2))
+```
+
 ## Charting top 5 counties where Youngkin outperformed Trump:
 
 Youngkin outperformed Trump in every Virginia county in the 2020 election. Below is the process I did for charting the top 5 counties where Youngkin performed better than Trump, meaning the places where the difference between their percentages of the vote was greatest.
@@ -62,7 +70,7 @@ ggplot(toptencounties_YO, aes(x = locality, y = youngkin_overperform)) +
   theme_fivethirtyeight()
 ```
 
-## Mapping Youngkin's Performance in Relation to Trump
+## Mapping Youngkin's Margin of Victory over Trump
 
 Below is a map showing the difference in the percentage of votes Youngkin received in Virginia counties and those that Trump received. The map uses shading to show the degree to which Youngkin outperformed Trump in every county.
 
@@ -103,30 +111,16 @@ joined <- left_join(va_counties_withgeo, joined_vacomparison, by = c("NAME" = "l
 
 mylabel <- glue::glue("{joined$NAME} {joined$youngkin_overperform}")
 
-
-mapview(joined, zcol = "youngkin_overperform", 
-         col.regions = RColorBrewer::brewer.pal(9, "Reds"), 
-         alpha.regions = 1,
-         label = mylabel)
-
-```
-
-```{r}
 mypopup <- glue::glue("<strong>{joined$NAME}</strong><br />
                       Percent: {joined$youngkin_overperform}<br />
                       Total Population: {joined$totalpopE}" ) %>% 
   lapply(htmltools::HTML)
-```
 
-```{r}
-head(mypopup)
-```
-
-```{r}
 mapview(joined, zcol = "youngkin_overperform", 
          col.regions = RColorBrewer::brewer.pal(9, "Reds"), 
          alpha.regions = 1,
          popup = mypopup, label = mylabel)
+
 ```
 
 ## Charting top 5 counties where Biden outperformed McAuliffe:
@@ -150,3 +144,22 @@ ggplot(toptencounties_BO, aes(x = locality, y = biden_overperform)) +
        caption = "VA Department of Elections") +
   theme_fivethirtyeight()
 ```
+
+## Mapping Biden's Margin of Victory over McAuliffe
+
+I mapped the difference in the percentage of votes Biden received compared to those McAuliffe received. Biden outperformed McAuliffe in every Virginia county. The darker the shading, the greater the victory.
+
+```{r}
+map2label <- glue::glue("{joined$NAME} {joined$biden_overperform}")
+
+popupmap2 <- glue::glue("<strong>{joined$NAME}</strong><br />
+                      Percent: {joined$biden_overperform}<br />
+                      Total Population: {joined$totalpopE}" ) %>% 
+  lapply(htmltools::HTML)
+
+mapview(joined, zcol = "biden_overperform", 
+         col.regions = RColorBrewer::brewer.pal(9, "Blues"), 
+         alpha.regions = 1,
+         label = map2label, popup = popupmap2)
+```
+
