@@ -14,7 +14,7 @@ website:
       - href: index.qmd
         text: Home
       - href: Loder_Hannah_Creative_Resume_2023.pdf
-        text: Resumé
+        text: Resume
       - portfolio.qmd
       - walkthrough.qmd
       - testpage.qmd
