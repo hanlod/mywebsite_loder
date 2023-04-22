@@ -206,3 +206,39 @@ ggplot(mcauliffe_top5, aes(x = locality, y = pct_mcauliffe)) +
        caption = "VA Department of Elections") +
   theme_fivethirtyeight()
 ```
+
+## Mapping Voting Percentages of Youngkin and McAuliffe
+
+Below is a map showing the percentages of the vote Youngkin and McAuliffe received in Virginia counties. The maps of each of their performances are joined together to make one interactive map.
+
+```{r}
+
+youngkin_label <- glue::glue("{joined$NAME} {joined$pct_youngkin}")
+
+popup_youngkin <- glue::glue("<strong>{joined$NAME}</strong><br />
+                      Percent Youngkin: {joined$pct_youngkin}<br />
+                      Total Population: {joined$totalpopE}" ) %>% 
+  lapply(htmltools::HTML)
+
+
+mcauliffe_label <- glue::glue("{joined$NAME} {joined$pct_mcauliffe}")
+
+popup_mcauliffe <- glue::glue("<strong>{joined$NAME}</strong><br />
+                      Percent McAuliffe: {joined$pct_mcauliffe}<br />
+                      Total Population: {joined$totalpopE}" ) %>% 
+  lapply(htmltools::HTML)
+
+map_youngkin <- mapview(joined, zcol = "pct_youngkin", 
+         col.regions = RColorBrewer::brewer.pal(9, "Reds"), 
+         alpha.regions = 1, 
+         label = youngkin_label, popup = popup_youngkin)
+
+map_mcauliffe <- mapview(joined, zcol = "pct_mcauliffe", 
+         col.regions = RColorBrewer::brewer.pal(9, "Blues"), 
+         alpha.regions = 1, 
+         label = mcauliffe_label, popup = popup_mcauliffe)
+
+map_mcauliffe | map_youngkin
+
+```
+
