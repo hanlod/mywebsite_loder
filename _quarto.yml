@@ -21,6 +21,8 @@ website:
       - classarticle.qmd
       - mapexample.qmd
       - vaelectionproject.qmd
+      - rconceptwalkthrough.qmd
+      - breakingnews.qmd
 
       
 
