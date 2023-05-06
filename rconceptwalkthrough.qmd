@@ -6,6 +6,29 @@ format:
     self-contained: true
     code-fold: true
     code-tools: true
-
 ---
 
+### Learn how to create new columns in R
+
+In order to add columns to a data set, we will be using the mutate function. First, we need to load some libraries and add the data. For this walkthrough, we will be using data about Missouri poverty from the U.S. Census's American Community Survey.
+
+```{r}
+# Here are the libraries we need to load. 
+library(tidyverse)
+library(lubridate)
+library(here)
+
+# Load the data as well.
+
+mopoverty <- read.csv("mocensusdata.csv")
+
+```
+
+Let's take a look at the data.
+
+```{r}
+mopoverty
+
+```
+
+In this data,
