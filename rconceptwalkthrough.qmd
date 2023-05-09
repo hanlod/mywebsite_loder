@@ -8,9 +8,9 @@ format:
     code-tools: true
 ---
 
-### Learn how to create new columns in R
+### Learn how to filter data in R
 
-In order to add columns to a data set, we will be using the mutate function. First, we need to load some libraries and add the data. For this walkthrough, we will be using data about Washington state's electric vehicles from 2023.
+In order to pick out specific elements of data set, we will be using the filter function. First, we need to load some libraries and add the data. For this walkthrough, we will be using data about Washington state's electric vehicles from 2023.
 
 ```{r}
 # Here are the libraries we need to load. 
@@ -20,7 +20,7 @@ library(here)
 
 # Load the data as well.
 
-wa_electric_car <- read.csv("Electric_Vehicle_Population_Data.csv")
+electric_car_data <- read.csv("Electric_Vehicle_Population_Data.csv")
 
 ```
 
@@ -28,20 +28,60 @@ Let's take a look at the data.
 
 ```{r}
 
-wa_electric_car
+head(electric_car_data)
 
 ```
 
-In this data, we have categories and totals for different demographic characteristics of the residents of Missouri in 2021. We also have percentages of people or households earning less than 50%, 100% and 125% of the poverty level. The data includes margins of error.
+In this data, we have a mix of textual and numerical information. We know locations of the vehicles and their makes and models. The data is from 2020, but it was updated in 2023.
 
-What if we want to add a column to find out the percentages of the demographic makeup of Missouri to include with the poverty level percentages? We need to add a column for that.
+First, looking at the data, there are some other states included, but we only want to look at Washington's electric vehicles. Let's use the filter function to make sure we are only looking at vehicles in Washington.
 
-In order to add a column, we must use the mutate function. Below is an example of adding a column to show what percent of the Missouri population is Black or African American. First, we need to filter for that data. 
+First, we need to save the filtered data set under a new name, so that we can differentiate it from the original data. We use "\<-" to do this. We include our original data next with the pipe, or "%\>%", to tell the code to use the data. Then we use the filter function to search the "State" for "WA", using two equal signs to show what we want the column to filter for. Be careful because it is case sensitive.
 
 ```{r}
 
-mopoverty %>% 
+wa_electric_car <- electric_car_data %>% 
+  filter(State == "WA")
 
 
 ```
 
+Now, we know we are only looking at Washington's vehicles. What if we want to only focus on the Teslas?
+
+In order to do this, we must filter again. We will follow the same steps as we did to find the Washington vehicles only. We can save the filtered data set under a new name again. This time we will filter the "Make" column for "TESLA". Remember, it is case sensitive.
+
+```{r}
+
+teslafilter <- wa_electric_car %>% 
+  filter(Make == "TESLA")
+
+```
+
+Now, let's take it a step further.
+
+What if we want to filter for the Teslas only in King County, which includes Seattle, a major city in Washington?
+
+Let's follow the same steps as above. This time, we fill filter the "County" column. Remember, it is case sensitive.
+
+```{r}
+
+king_co_teslas <- teslafilter %>% 
+  filter(County == "King")
+
+```
+
+Now, we have the data we want to use for more analyses.
+
+But, is there a quicker way for us to get here? Let's try doing all of these steps in one. We will use our original data for this and separate our filters with columns.
+
+```{r}
+
+option2_king_co_teslas <- electric_car_data %>% 
+  filter(State == "WA", 
+         Make == "TESLA", 
+         County == "King")
+
+
+```
+
+There you have it. Now you know how to filter like a pro.
