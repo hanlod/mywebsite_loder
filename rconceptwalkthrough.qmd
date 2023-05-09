@@ -10,7 +10,7 @@ format:
 
 ### Learn how to create new columns in R
 
-In order to add columns to a data set, we will be using the mutate function. First, we need to load some libraries and add the data. For this walkthrough, we will be using data about Missouri poverty from the U.S. Census's American Community Survey.
+In order to add columns to a data set, we will be using the mutate function. First, we need to load some libraries and add the data. For this walkthrough, we will be using data about Washington state's electric vehicles from 2023.
 
 ```{r}
 # Here are the libraries we need to load. 
@@ -20,15 +20,28 @@ library(here)
 
 # Load the data as well.
 
-mopoverty <- read.csv("mocensusdata.csv")
+wa_electric_car <- read.csv("Electric_Vehicle_Population_Data.csv")
 
 ```
 
 Let's take a look at the data.
 
 ```{r}
-mopoverty
+
+wa_electric_car
 
 ```
 
-In this data,
+In this data, we have categories and totals for different demographic characteristics of the residents of Missouri in 2021. We also have percentages of people or households earning less than 50%, 100% and 125% of the poverty level. The data includes margins of error.
+
+What if we want to add a column to find out the percentages of the demographic makeup of Missouri to include with the poverty level percentages? We need to add a column for that.
+
+In order to add a column, we must use the mutate function. Below is an example of adding a column to show what percent of the Missouri population is Black or African American. First, we need to filter for that data. 
+
+```{r}
+
+mopoverty %>% 
+
+
+```
+
