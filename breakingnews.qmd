@@ -4,8 +4,8 @@ author: "Hannah Loder"
 format:
   html:
     self-contained: true
-    toc: true
-    toc-location: left
+    code-fold: true
+    code-tools: true
 ---
 
 ## Breaking News Example Story
@@ -88,5 +88,7 @@ shootings2022 %>%
 
 ```
 Here is the exact code I want to include in my story. 
+
+
 
 #### Story Example: 
