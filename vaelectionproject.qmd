@@ -241,4 +241,3 @@ map_mcauliffe <- mapview(joined, zcol = "pct_mcauliffe",
 map_mcauliffe | map_youngkin
 
 ```
-

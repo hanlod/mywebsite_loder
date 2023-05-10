@@ -4,7 +4,89 @@ author: "Hannah Loder"
 format:
   html:
     self-contained: true
-    code-fold: true
-    code-tools: true
-
+    toc: true
+    toc-location: left
 ---
+
+## Breaking News Example Story
+
+#### Background and data gathering:
+
+For my example of breaking news, I am using data from mappingpoliceviolence.org. My breaking news story will be written as if the 250th killing by police in 2023 had just happened. In reality, there have been more than that now. I am using 250 to show that a quarter of the way into the year there have been a quarter of a thousand police killings. The 250th police killing happened in March. I will use the data to compare that number to last year.
+
+First, I need to load in the data and run some analysis. This will be the code that I input into my story.
+
+```{r}
+
+#load libraries
+library(tidyverse)
+library(lubridate)
+library(here)
+library(readxl)
+library(writexl)
+library(janitor)
+library(httr)
+library(readr)
+
+
+#load data
+shootings_bypolice <- read.csv("fatal-police-shootings-data.csv")
+
+```
+
+I am filtering for the 2023 deaths and 2022 deaths. I want to compare them in my news story. First, I have to create a new column with the year using the mutate function. I also made sure to save the data with the new column. 
+
+```{r}
+
+shootings_bypolice <- shootings_bypolice %>% 
+  mutate(year = year(date))
+
+```
+
+
+```{r}
+
+shootings2023 <- shootings_bypolice %>% 
+  filter(year == 2023) %>% 
+  arrange(date) %>% 
+  head(300)
+
+```
+
+There have been 300 fatal shootings by police as of April 15, 2023. 
+Let's look closer at the 300th shooting. 
+
+```{r}
+
+shootings2023 %>% 
+  filter(date == "2023-04-15")
+
+```
+
+
+Now, I want to see how many there were in 2022 total and by April 15. 
+
+```{r}
+
+shootings2022 <- shootings_bypolice %>% 
+  filter(year == 2022) %>% 
+  arrange(date)
+
+shootings2022 %>% 
+  filter(date < "2022-04-16")
+
+```
+
+There were 1096 fatal shootings by police in 2022. After looking at the data, there were 323 fatal shootings by police as of 4/15/2022. 
+
+Let's take a closer look at that 323rd fatal shooting. 
+
+```{r}
+
+shootings2022 %>% 
+  filter(date == "2022-04-15")
+
+```
+Here is the exact code I want to include in my story. 
+
+#### Story Example: 
