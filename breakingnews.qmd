@@ -77,9 +77,9 @@ I also want to see which states have the most fatal police shootings.
 shootings2023 %>% 
   filter(year == 2023) %>% 
   arrange(date) %>% 
-  head(300) %>% 
   count(state) %>% 
-  arrange(desc(n))
+  arrange(desc(n)) %>% 
+  head(3)
 
 ```
 
