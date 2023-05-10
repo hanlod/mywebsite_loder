@@ -153,14 +153,13 @@ shootings2022 %>%
 
 ```
 
-Here is the exact code I want to include in my story.
+Here is the exact code I want to include in my story:
 
 ```{r}
 name300 <- shootings2023 %>% 
   filter(date == "2023-04-15") %>% 
   select(name)
 
-name300
 ```
 
 ```{r}
@@ -254,7 +253,7 @@ On Saturday, `r name300`, `r age300`, was shot and killed by police in `r city30
 
 Police reports indicate there is body camera footage of the altercation. The story will be updated as more information becomes available. This is the fifth fatal shooting by police in Illinois in 2023.
 
-Of the 300 people fatally shot by police this year, `r unarmed23` were unarmed and `r wguns23` were armed with guns, according to The Washington Post's data. Fourteen of the 300 people attacked police, leading to the shooting.
+Of the 300 people fatally shot by police this year, `r unarmed23` were unarmed and `r wguns23` were armed with guns, according to The Washington Post's data. Fourteen of the 300 people attacked police, which lead to the shootings.
 
 California, Texas and Florida police departments are responsible for the majority of 2023's fatal shootings, with a total of 96 between them. California police are responsible for `r cali23` of those deaths.
 

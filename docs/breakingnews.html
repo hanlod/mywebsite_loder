@@ -4245,55 +4245,15 @@ The following objects are masked from &#39;package:stats&#39;:
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>   state  n
-1     CA 41
-2     TX 31
-3     FL 24
-4     AZ 18
-5     TN 13
-6     GA 12
-7     NC 11
-8     AL  9
-9     CO  9
-10    VA  9
-11    IN  8
-12    MO  8
-13    OH  8
-14    MI  6
-15    OK  6
-16    PA  6
-17    ID  5
-18    IL  5
-19    KY  5
-20    NM  5
-21    OR  5
-22    UT  5
-23    KS  4
-24    NJ  4
-25    NY  4
-26    WA  4
-27    WI  4
-28    LA  3
-29    MA  3
-30    MN  3
-31    MS  3
-32    MT  3
-33    AR  2
-34    DC  2
-35    NV  2
-36    SC  2
-37    WV  2
-38    DE  1
-39    HI  1
-40    MD  1
-41    NE  1
-42    NH  1
-43    SD  1</code></pre>
+<pre><code>  state  n
+1    CA 41
+2    TX 31
+3    FL 24</code></pre>
 </div>
 </div>
 <p>I want to see how many people were armed with guns.</p>
@@ -6844,128 +6804,122 @@ The following objects are masked from &#39;package:stats&#39;:
 18 2022</code></pre>
 </div>
 </div>
-<p>Here is the exact code I want to include in my story.</p>
+<p>Here is the exact code I want to include in my story:</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>name300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>name300</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>               name
-1 Reginald Clay Jr.</code></pre>
-</div>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>age300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>age300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>city300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>city300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>armed_with_300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>armed_with_300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>unarmed23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>unarmed23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>wguns23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>wguns23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>cali23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;CA&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>cali23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;CA&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>black_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>black_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>white_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>white_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>shootings22total <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>shootings22total <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>place22_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>place22_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>name323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>name323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>age323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>age323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>armed_with_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>armed_with_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -6973,7 +6927,7 @@ The following objects are masked from &#39;package:stats&#39;:
 <h4 class="anchored" data-anchor-id="story-example">Story Example:</h4>
 <p>On Saturday, Reginald Clay Jr., 24, was shot and killed by police in Chicago, making him the 300th person killed by police this year, according to data from The Washington Post. According to police reports, Clay was threatening officers and was armed with a gun before retreating on foot.</p>
 <p>Police reports indicate there is body camera footage of the altercation. The story will be updated as more information becomes available. This is the fifth fatal shooting by police in Illinois in 2023.</p>
-<p>Of the 300 people fatally shot by police this year, 11 were unarmed and 181 were armed with guns, according to The Washington Post’s data. Fourteen of the 300 people attacked police, leading to the shooting.</p>
+<p>Of the 300 people fatally shot by police this year, 11 were unarmed and 181 were armed with guns, according to The Washington Post’s data. Fourteen of the 300 people attacked police, which lead to the shootings.</p>
 <p>California, Texas and Florida police departments are responsible for the majority of 2023’s fatal shootings, with a total of 96 between them. California police are responsible for 41 of those deaths.</p>
 <p>The data provides racial information for 129 of the 300 people shot and killed by police. Of those whose race has been recorded, 38 were Black and 72 were white. The recorded data shows nearly 30% of the people fatally shot by police this year were Black. According to the U.S. Census, 13.6% of the United States is Black, indicating a disparity.</p>
 <p>In 2022, there were 1096 fatal shootings by police. On April 15, 2022, police in Cowley County, Kansas, shot and killed Andrea C. Barrow, 32. Barrow was the 323rd person fatally shot by police that year.</p>
@@ -7170,261 +7124,260 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb47" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Breaking News Example&quot;</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Hannah Loder&quot;</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breaking News Example Story</span></span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Background and data gathering:</span></span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>For my example of breaking news, I am using data from The Washington Post. My breaking news story will be written as if the 300th fatal shooting by police in 2023 had just happened. In reality, there have been more than that now. I am comparing 2022 and 2023 in the news story.</span>
-<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>First, I need to load in the data and run some analysis. This will be the code that I input into my story.</span>
-<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="co">#load libraries</span></span>
-<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
-<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a><span class="co">#load data</span></span>
-<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>shootings_bypolice <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fatal-police-shootings-data.csv&quot;</span>)</span>
-<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a>I am filtering for the 2023 deaths and 2022 deaths. I want to compare them in my news story. First, I have to create a new column with the year using the mutate function. I also made sure to save the data with the new column.</span>
-<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-42"><a href="#cb47-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-43"><a href="#cb47-43" aria-hidden="true" tabindex="-1"></a>shootings_bypolice <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
-<span id="cb47-44"><a href="#cb47-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date))</span>
-<span id="cb47-45"><a href="#cb47-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-46"><a href="#cb47-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-47"><a href="#cb47-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-50"><a href="#cb47-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-51"><a href="#cb47-51" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
-<span id="cb47-52"><a href="#cb47-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-53"><a href="#cb47-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-54"><a href="#cb47-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>)</span>
-<span id="cb47-55"><a href="#cb47-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-57"><a href="#cb47-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>There have been 300 fatal shootings by police as of April 15, 2023. Let&#39;s look closer at the 300th shooting.</span>
-<span id="cb47-59"><a href="#cb47-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-62"><a href="#cb47-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-63"><a href="#cb47-63" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-64"><a href="#cb47-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>)</span>
-<span id="cb47-65"><a href="#cb47-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-66"><a href="#cb47-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-67"><a href="#cb47-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-68"><a href="#cb47-68" aria-hidden="true" tabindex="-1"></a>Let&#39;s look at other characteristics of the shootings, like how many people were unarmed.</span>
-<span id="cb47-69"><a href="#cb47-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-72"><a href="#cb47-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-73"><a href="#cb47-73" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-74"><a href="#cb47-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>)</span>
-<span id="cb47-75"><a href="#cb47-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-76"><a href="#cb47-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-77"><a href="#cb47-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-78"><a href="#cb47-78" aria-hidden="true" tabindex="-1"></a>I also want to see which states have the most fatal police shootings.</span>
-<span id="cb47-79"><a href="#cb47-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-82"><a href="#cb47-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-83"><a href="#cb47-83" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-84"><a href="#cb47-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-85"><a href="#cb47-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-86"><a href="#cb47-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-87"><a href="#cb47-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-88"><a href="#cb47-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
-<span id="cb47-89"><a href="#cb47-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-90"><a href="#cb47-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-91"><a href="#cb47-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-92"><a href="#cb47-92" aria-hidden="true" tabindex="-1"></a>I want to see how many people were armed with guns.</span>
-<span id="cb47-93"><a href="#cb47-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-96"><a href="#cb47-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-97"><a href="#cb47-97" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-98"><a href="#cb47-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>)</span>
-<span id="cb47-99"><a href="#cb47-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-100"><a href="#cb47-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-101"><a href="#cb47-101" aria-hidden="true" tabindex="-1"></a>I now want to see how many people were attacking police by looking at the threat type.</span>
-<span id="cb47-102"><a href="#cb47-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-105"><a href="#cb47-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-106"><a href="#cb47-106" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-107"><a href="#cb47-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(threat_type <span class="sc">==</span> <span class="st">&quot;attack&quot;</span>)</span>
-<span id="cb47-108"><a href="#cb47-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-109"><a href="#cb47-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-110"><a href="#cb47-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-111"><a href="#cb47-111" aria-hidden="true" tabindex="-1"></a>I am also going to look at the races of the people who have been killed.</span>
-<span id="cb47-112"><a href="#cb47-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-115"><a href="#cb47-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-116"><a href="#cb47-116" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-117"><a href="#cb47-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-118"><a href="#cb47-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-119"><a href="#cb47-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-120"><a href="#cb47-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-121"><a href="#cb47-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-124"><a href="#cb47-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-125"><a href="#cb47-125" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-126"><a href="#cb47-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-127"><a href="#cb47-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-128"><a href="#cb47-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-129"><a href="#cb47-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-132"><a href="#cb47-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-133"><a href="#cb47-133" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-134"><a href="#cb47-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>)</span>
-<span id="cb47-135"><a href="#cb47-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-136"><a href="#cb47-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-137"><a href="#cb47-137" aria-hidden="true" tabindex="-1"></a>Now, I want to see how many there were in 2022 total and by April 15.</span>
-<span id="cb47-138"><a href="#cb47-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-141"><a href="#cb47-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-142"><a href="#cb47-142" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
-<span id="cb47-143"><a href="#cb47-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-144"><a href="#cb47-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span>
-<span id="cb47-145"><a href="#cb47-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-146"><a href="#cb47-146" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-147"><a href="#cb47-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&lt;</span> <span class="st">&quot;2022-04-16&quot;</span>)</span>
-<span id="cb47-148"><a href="#cb47-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-149"><a href="#cb47-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-150"><a href="#cb47-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-151"><a href="#cb47-151" aria-hidden="true" tabindex="-1"></a>There were 1096 fatal shootings by police in 2022. After looking at the data, there were 323 fatal shootings by police as of 4/15/2022.</span>
-<span id="cb47-152"><a href="#cb47-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-153"><a href="#cb47-153" aria-hidden="true" tabindex="-1"></a>Let&#39;s take a closer look at that 323rd fatal shooting.</span>
-<span id="cb47-154"><a href="#cb47-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-157"><a href="#cb47-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-158"><a href="#cb47-158" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-159"><a href="#cb47-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>)</span>
-<span id="cb47-160"><a href="#cb47-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-161"><a href="#cb47-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-162"><a href="#cb47-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-163"><a href="#cb47-163" aria-hidden="true" tabindex="-1"></a>I want to see how many unarmed people were shot and killed by the 323rd shooting in 2022.</span>
-<span id="cb47-164"><a href="#cb47-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-167"><a href="#cb47-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-168"><a href="#cb47-168" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-169"><a href="#cb47-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&lt;</span> <span class="st">&quot;2022-04-16&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-170"><a href="#cb47-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>)</span>
-<span id="cb47-171"><a href="#cb47-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-172"><a href="#cb47-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-173"><a href="#cb47-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-174"><a href="#cb47-174" aria-hidden="true" tabindex="-1"></a>Here is the exact code I want to include in my story.</span>
-<span id="cb47-175"><a href="#cb47-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-178"><a href="#cb47-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-179"><a href="#cb47-179" aria-hidden="true" tabindex="-1"></a>name300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-180"><a href="#cb47-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-181"><a href="#cb47-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span>
-<span id="cb47-182"><a href="#cb47-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-183"><a href="#cb47-183" aria-hidden="true" tabindex="-1"></a>name300</span>
-<span id="cb47-184"><a href="#cb47-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-185"><a href="#cb47-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-188"><a href="#cb47-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-189"><a href="#cb47-189" aria-hidden="true" tabindex="-1"></a>age300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-190"><a href="#cb47-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-191"><a href="#cb47-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span>
-<span id="cb47-192"><a href="#cb47-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-193"><a href="#cb47-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-196"><a href="#cb47-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-197"><a href="#cb47-197" aria-hidden="true" tabindex="-1"></a>city300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-198"><a href="#cb47-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-199"><a href="#cb47-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span>
-<span id="cb47-200"><a href="#cb47-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-201"><a href="#cb47-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-204"><a href="#cb47-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-205"><a href="#cb47-205" aria-hidden="true" tabindex="-1"></a>armed_with_300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-206"><a href="#cb47-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-207"><a href="#cb47-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span>
-<span id="cb47-208"><a href="#cb47-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-209"><a href="#cb47-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-210"><a href="#cb47-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-213"><a href="#cb47-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-214"><a href="#cb47-214" aria-hidden="true" tabindex="-1"></a>unarmed23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-215"><a href="#cb47-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-216"><a href="#cb47-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-217"><a href="#cb47-217" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-218"><a href="#cb47-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-219"><a href="#cb47-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-222"><a href="#cb47-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-223"><a href="#cb47-223" aria-hidden="true" tabindex="-1"></a>wguns23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-224"><a href="#cb47-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-225"><a href="#cb47-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-226"><a href="#cb47-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-227"><a href="#cb47-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-230"><a href="#cb47-230" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-231"><a href="#cb47-231" aria-hidden="true" tabindex="-1"></a>cali23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-232"><a href="#cb47-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-233"><a href="#cb47-233" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-234"><a href="#cb47-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-235"><a href="#cb47-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-236"><a href="#cb47-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-237"><a href="#cb47-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;CA&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-238"><a href="#cb47-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span>
-<span id="cb47-239"><a href="#cb47-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-240"><a href="#cb47-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-243"><a href="#cb47-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-244"><a href="#cb47-244" aria-hidden="true" tabindex="-1"></a>black_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-245"><a href="#cb47-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-246"><a href="#cb47-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-247"><a href="#cb47-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-248"><a href="#cb47-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-251"><a href="#cb47-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-252"><a href="#cb47-252" aria-hidden="true" tabindex="-1"></a>white_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-253"><a href="#cb47-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-254"><a href="#cb47-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-255"><a href="#cb47-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-256"><a href="#cb47-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-259"><a href="#cb47-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-260"><a href="#cb47-260" aria-hidden="true" tabindex="-1"></a>shootings22total <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
-<span id="cb47-261"><a href="#cb47-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-262"><a href="#cb47-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb47-263"><a href="#cb47-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-264"><a href="#cb47-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-267"><a href="#cb47-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-268"><a href="#cb47-268" aria-hidden="true" tabindex="-1"></a>place22_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-269"><a href="#cb47-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-270"><a href="#cb47-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span>
-<span id="cb47-271"><a href="#cb47-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-272"><a href="#cb47-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-275"><a href="#cb47-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-276"><a href="#cb47-276" aria-hidden="true" tabindex="-1"></a>name323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-277"><a href="#cb47-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-278"><a href="#cb47-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span>
-<span id="cb47-279"><a href="#cb47-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-280"><a href="#cb47-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-283"><a href="#cb47-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-284"><a href="#cb47-284" aria-hidden="true" tabindex="-1"></a>age323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-285"><a href="#cb47-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-286"><a href="#cb47-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span>
-<span id="cb47-287"><a href="#cb47-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-288"><a href="#cb47-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-291"><a href="#cb47-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-292"><a href="#cb47-292" aria-hidden="true" tabindex="-1"></a>armed_with_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
-<span id="cb47-293"><a href="#cb47-293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-294"><a href="#cb47-294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span>
-<span id="cb47-295"><a href="#cb47-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-296"><a href="#cb47-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-297"><a href="#cb47-297" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Story Example:</span></span>
-<span id="cb47-298"><a href="#cb47-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-299"><a href="#cb47-299" aria-hidden="true" tabindex="-1"></a>On Saturday, <span class="in">`r name300`</span>, <span class="in">`r age300`</span>, was shot and killed by police in <span class="in">`r city300`</span>, making him the 300th person killed by police this year, according to data from The Washington Post. According to police reports, Clay was threatening officers and was armed with a <span class="in">`r armed_with_300`</span> before retreating on foot.</span>
-<span id="cb47-300"><a href="#cb47-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-301"><a href="#cb47-301" aria-hidden="true" tabindex="-1"></a>Police reports indicate there is body camera footage of the altercation. The story will be updated as more information becomes available. This is the fifth fatal shooting by police in Illinois in 2023.</span>
-<span id="cb47-302"><a href="#cb47-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-303"><a href="#cb47-303" aria-hidden="true" tabindex="-1"></a>Of the 300 people fatally shot by police this year, <span class="in">`r unarmed23`</span> were unarmed and <span class="in">`r wguns23`</span> were armed with guns, according to The Washington Post&#39;s data. Fourteen of the 300 people attacked police, leading to the shooting.</span>
-<span id="cb47-304"><a href="#cb47-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-305"><a href="#cb47-305" aria-hidden="true" tabindex="-1"></a>California, Texas and Florida police departments are responsible for the majority of 2023&#39;s fatal shootings, with a total of 96 between them. California police are responsible for <span class="in">`r cali23`</span> of those deaths.</span>
-<span id="cb47-306"><a href="#cb47-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-307"><a href="#cb47-307" aria-hidden="true" tabindex="-1"></a>The data provides racial information for 129 of the 300 people shot and killed by police. Of those whose race has been recorded, <span class="in">`r black_23`</span> were Black and <span class="in">`r white_23`</span> were white. The recorded data shows nearly 30% of the people fatally shot by police this year were Black. According to the U.S. Census, 13.6% of the United States is Black, indicating a disparity.</span>
-<span id="cb47-308"><a href="#cb47-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-309"><a href="#cb47-309" aria-hidden="true" tabindex="-1"></a>In 2022, there were <span class="in">`r shootings22total`</span> fatal shootings by police. On April 15, 2022, police in <span class="in">`r place22_323`</span>, Kansas, shot and killed <span class="in">`r name323`</span>, <span class="in">`r age323`</span>. Barrow was the 323rd person fatally shot by police that year.</span>
-<span id="cb47-310"><a href="#cb47-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-311"><a href="#cb47-311" aria-hidden="true" tabindex="-1"></a>Barrow had a similar altercation with police, as she was armed with a <span class="in">`r armed_with_323`</span> and threatened officers. In her case, the data reports there was no body camera footage available.</span>
+<div class="sourceCode" id="cb46" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Breaking News Example&quot;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Hannah Loder&quot;</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Breaking News Example Story</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Background and data gathering:</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>For my example of breaking news, I am using data from The Washington Post. My breaking news story will be written as if the 300th fatal shooting by police in 2023 had just happened. In reality, there have been more than that now. I am comparing 2022 and 2023 in the news story.</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>First, I need to load in the data and run some analysis. This will be the code that I input into my story.</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a><span class="co">#load libraries</span></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a><span class="co">#load data</span></span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a>shootings_bypolice <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fatal-police-shootings-data.csv&quot;</span>)</span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>I am filtering for the 2023 deaths and 2022 deaths. I want to compare them in my news story. First, I have to create a new column with the year using the mutate function. I also made sure to save the data with the new column.</span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>shootings_bypolice <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date))</span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>)</span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a>There have been 300 fatal shootings by police as of April 15, 2023. Let&#39;s look closer at the 300th shooting.</span>
+<span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>)</span>
+<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a>Let&#39;s look at other characteristics of the shootings, like how many people were unarmed.</span>
+<span id="cb46-69"><a href="#cb46-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-72"><a href="#cb46-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-73"><a href="#cb46-73" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-74"><a href="#cb46-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>)</span>
+<span id="cb46-75"><a href="#cb46-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-76"><a href="#cb46-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-77"><a href="#cb46-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-78"><a href="#cb46-78" aria-hidden="true" tabindex="-1"></a>I also want to see which states have the most fatal police shootings.</span>
+<span id="cb46-79"><a href="#cb46-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-82"><a href="#cb46-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-83"><a href="#cb46-83" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-84"><a href="#cb46-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-85"><a href="#cb46-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-86"><a href="#cb46-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-87"><a href="#cb46-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-88"><a href="#cb46-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span>
+<span id="cb46-89"><a href="#cb46-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-90"><a href="#cb46-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-91"><a href="#cb46-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-92"><a href="#cb46-92" aria-hidden="true" tabindex="-1"></a>I want to see how many people were armed with guns.</span>
+<span id="cb46-93"><a href="#cb46-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-96"><a href="#cb46-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-97"><a href="#cb46-97" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-98"><a href="#cb46-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>)</span>
+<span id="cb46-99"><a href="#cb46-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-100"><a href="#cb46-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-101"><a href="#cb46-101" aria-hidden="true" tabindex="-1"></a>I now want to see how many people were attacking police by looking at the threat type.</span>
+<span id="cb46-102"><a href="#cb46-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-105"><a href="#cb46-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-106"><a href="#cb46-106" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-107"><a href="#cb46-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(threat_type <span class="sc">==</span> <span class="st">&quot;attack&quot;</span>)</span>
+<span id="cb46-108"><a href="#cb46-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-109"><a href="#cb46-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-110"><a href="#cb46-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-111"><a href="#cb46-111" aria-hidden="true" tabindex="-1"></a>I am also going to look at the races of the people who have been killed.</span>
+<span id="cb46-112"><a href="#cb46-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-115"><a href="#cb46-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-116"><a href="#cb46-116" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-117"><a href="#cb46-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-118"><a href="#cb46-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-119"><a href="#cb46-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-120"><a href="#cb46-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-121"><a href="#cb46-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-124"><a href="#cb46-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-125"><a href="#cb46-125" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-126"><a href="#cb46-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-127"><a href="#cb46-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-128"><a href="#cb46-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-129"><a href="#cb46-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-132"><a href="#cb46-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-133"><a href="#cb46-133" aria-hidden="true" tabindex="-1"></a>shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-134"><a href="#cb46-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>)</span>
+<span id="cb46-135"><a href="#cb46-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-136"><a href="#cb46-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-137"><a href="#cb46-137" aria-hidden="true" tabindex="-1"></a>Now, I want to see how many there were in 2022 total and by April 15.</span>
+<span id="cb46-138"><a href="#cb46-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-141"><a href="#cb46-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-142"><a href="#cb46-142" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
+<span id="cb46-143"><a href="#cb46-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-144"><a href="#cb46-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span>
+<span id="cb46-145"><a href="#cb46-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-146"><a href="#cb46-146" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-147"><a href="#cb46-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&lt;</span> <span class="st">&quot;2022-04-16&quot;</span>)</span>
+<span id="cb46-148"><a href="#cb46-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-149"><a href="#cb46-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-150"><a href="#cb46-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-151"><a href="#cb46-151" aria-hidden="true" tabindex="-1"></a>There were 1096 fatal shootings by police in 2022. After looking at the data, there were 323 fatal shootings by police as of 4/15/2022.</span>
+<span id="cb46-152"><a href="#cb46-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-153"><a href="#cb46-153" aria-hidden="true" tabindex="-1"></a>Let&#39;s take a closer look at that 323rd fatal shooting.</span>
+<span id="cb46-154"><a href="#cb46-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-157"><a href="#cb46-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-158"><a href="#cb46-158" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-159"><a href="#cb46-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>)</span>
+<span id="cb46-160"><a href="#cb46-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-161"><a href="#cb46-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-162"><a href="#cb46-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-163"><a href="#cb46-163" aria-hidden="true" tabindex="-1"></a>I want to see how many unarmed people were shot and killed by the 323rd shooting in 2022.</span>
+<span id="cb46-164"><a href="#cb46-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-167"><a href="#cb46-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-168"><a href="#cb46-168" aria-hidden="true" tabindex="-1"></a>shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-169"><a href="#cb46-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&lt;</span> <span class="st">&quot;2022-04-16&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-170"><a href="#cb46-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>)</span>
+<span id="cb46-171"><a href="#cb46-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-172"><a href="#cb46-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-173"><a href="#cb46-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-174"><a href="#cb46-174" aria-hidden="true" tabindex="-1"></a>Here is the exact code I want to include in my story:</span>
+<span id="cb46-175"><a href="#cb46-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-178"><a href="#cb46-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-179"><a href="#cb46-179" aria-hidden="true" tabindex="-1"></a>name300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-180"><a href="#cb46-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-181"><a href="#cb46-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span>
+<span id="cb46-182"><a href="#cb46-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-183"><a href="#cb46-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-184"><a href="#cb46-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-187"><a href="#cb46-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-188"><a href="#cb46-188" aria-hidden="true" tabindex="-1"></a>age300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-189"><a href="#cb46-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-190"><a href="#cb46-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span>
+<span id="cb46-191"><a href="#cb46-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-192"><a href="#cb46-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-195"><a href="#cb46-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-196"><a href="#cb46-196" aria-hidden="true" tabindex="-1"></a>city300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-197"><a href="#cb46-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-198"><a href="#cb46-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span>
+<span id="cb46-199"><a href="#cb46-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-200"><a href="#cb46-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-203"><a href="#cb46-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-204"><a href="#cb46-204" aria-hidden="true" tabindex="-1"></a>armed_with_300 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-205"><a href="#cb46-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2023-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-206"><a href="#cb46-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span>
+<span id="cb46-207"><a href="#cb46-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-208"><a href="#cb46-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-209"><a href="#cb46-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-212"><a href="#cb46-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-213"><a href="#cb46-213" aria-hidden="true" tabindex="-1"></a>unarmed23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-214"><a href="#cb46-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;unarmed&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-215"><a href="#cb46-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-216"><a href="#cb46-216" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-217"><a href="#cb46-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-218"><a href="#cb46-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-221"><a href="#cb46-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-222"><a href="#cb46-222" aria-hidden="true" tabindex="-1"></a>wguns23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-223"><a href="#cb46-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(armed_with <span class="sc">==</span> <span class="st">&quot;gun&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-224"><a href="#cb46-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-225"><a href="#cb46-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-226"><a href="#cb46-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-229"><a href="#cb46-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-230"><a href="#cb46-230" aria-hidden="true" tabindex="-1"></a>cali23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-231"><a href="#cb46-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-232"><a href="#cb46-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-233"><a href="#cb46-233" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">300</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-234"><a href="#cb46-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-235"><a href="#cb46-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-236"><a href="#cb46-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;CA&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-237"><a href="#cb46-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span>
+<span id="cb46-238"><a href="#cb46-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-239"><a href="#cb46-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-242"><a href="#cb46-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-243"><a href="#cb46-243" aria-hidden="true" tabindex="-1"></a>black_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-244"><a href="#cb46-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;B&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-245"><a href="#cb46-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-246"><a href="#cb46-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-247"><a href="#cb46-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-250"><a href="#cb46-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-251"><a href="#cb46-251" aria-hidden="true" tabindex="-1"></a>white_23 <span class="ot">&lt;-</span> shootings2023 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-252"><a href="#cb46-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race <span class="sc">==</span> <span class="st">&quot;W&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-253"><a href="#cb46-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-254"><a href="#cb46-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-255"><a href="#cb46-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-258"><a href="#cb46-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-259"><a href="#cb46-259" aria-hidden="true" tabindex="-1"></a>shootings22total <span class="ot">&lt;-</span> shootings_bypolice <span class="sc">%&gt;%</span> </span>
+<span id="cb46-260"><a href="#cb46-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-261"><a href="#cb46-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb46-262"><a href="#cb46-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-263"><a href="#cb46-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-266"><a href="#cb46-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-267"><a href="#cb46-267" aria-hidden="true" tabindex="-1"></a>place22_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-268"><a href="#cb46-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-269"><a href="#cb46-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city)</span>
+<span id="cb46-270"><a href="#cb46-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-271"><a href="#cb46-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-274"><a href="#cb46-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-275"><a href="#cb46-275" aria-hidden="true" tabindex="-1"></a>name323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-276"><a href="#cb46-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-277"><a href="#cb46-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)</span>
+<span id="cb46-278"><a href="#cb46-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-279"><a href="#cb46-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-282"><a href="#cb46-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-283"><a href="#cb46-283" aria-hidden="true" tabindex="-1"></a>age323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-284"><a href="#cb46-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-285"><a href="#cb46-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span>
+<span id="cb46-286"><a href="#cb46-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-287"><a href="#cb46-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-290"><a href="#cb46-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-291"><a href="#cb46-291" aria-hidden="true" tabindex="-1"></a>armed_with_323 <span class="ot">&lt;-</span> shootings2022 <span class="sc">%&gt;%</span> </span>
+<span id="cb46-292"><a href="#cb46-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2022-04-15&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-293"><a href="#cb46-293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(armed_with)</span>
+<span id="cb46-294"><a href="#cb46-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-295"><a href="#cb46-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-296"><a href="#cb46-296" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Story Example:</span></span>
+<span id="cb46-297"><a href="#cb46-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-298"><a href="#cb46-298" aria-hidden="true" tabindex="-1"></a>On Saturday, <span class="in">`r name300`</span>, <span class="in">`r age300`</span>, was shot and killed by police in <span class="in">`r city300`</span>, making him the 300th person killed by police this year, according to data from The Washington Post. According to police reports, Clay was threatening officers and was armed with a <span class="in">`r armed_with_300`</span> before retreating on foot.</span>
+<span id="cb46-299"><a href="#cb46-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-300"><a href="#cb46-300" aria-hidden="true" tabindex="-1"></a>Police reports indicate there is body camera footage of the altercation. The story will be updated as more information becomes available. This is the fifth fatal shooting by police in Illinois in 2023.</span>
+<span id="cb46-301"><a href="#cb46-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-302"><a href="#cb46-302" aria-hidden="true" tabindex="-1"></a>Of the 300 people fatally shot by police this year, <span class="in">`r unarmed23`</span> were unarmed and <span class="in">`r wguns23`</span> were armed with guns, according to The Washington Post&#39;s data. Fourteen of the 300 people attacked police, which lead to the shootings.</span>
+<span id="cb46-303"><a href="#cb46-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-304"><a href="#cb46-304" aria-hidden="true" tabindex="-1"></a>California, Texas and Florida police departments are responsible for the majority of 2023&#39;s fatal shootings, with a total of 96 between them. California police are responsible for <span class="in">`r cali23`</span> of those deaths.</span>
+<span id="cb46-305"><a href="#cb46-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-306"><a href="#cb46-306" aria-hidden="true" tabindex="-1"></a>The data provides racial information for 129 of the 300 people shot and killed by police. Of those whose race has been recorded, <span class="in">`r black_23`</span> were Black and <span class="in">`r white_23`</span> were white. The recorded data shows nearly 30% of the people fatally shot by police this year were Black. According to the U.S. Census, 13.6% of the United States is Black, indicating a disparity.</span>
+<span id="cb46-307"><a href="#cb46-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-308"><a href="#cb46-308" aria-hidden="true" tabindex="-1"></a>In 2022, there were <span class="in">`r shootings22total`</span> fatal shootings by police. On April 15, 2022, police in <span class="in">`r place22_323`</span>, Kansas, shot and killed <span class="in">`r name323`</span>, <span class="in">`r age323`</span>. Barrow was the 323rd person fatally shot by police that year.</span>
+<span id="cb46-309"><a href="#cb46-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-310"><a href="#cb46-310" aria-hidden="true" tabindex="-1"></a>Barrow had a similar altercation with police, as she was armed with a <span class="in">`r armed_with_323`</span> and threatened officers. In her case, the data reports there was no body camera footage available.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
