@@ -12,7 +12,7 @@ format:
 
 #### Background and data gathering:
 
-For my example of breaking news, I am using data from mappingpoliceviolence.org. My breaking news story will be written as if the 250th killing by police in 2023 had just happened. In reality, there have been more than that now. I am using 250 to show that a quarter of the way into the year there have been a quarter of a thousand police killings. The 250th police killing happened in March. I will use the data to compare that number to last year.
+For my example of breaking news, I am using data from The Washington Post. My breaking news story will be written as if the 300th fatal shooting by police in 2023 had just happened. In reality, there have been more than that now. I am comparing 2022 and 2023 in the news story.
 
 First, I need to load in the data and run some analysis. This will be the code that I input into my story.
 
@@ -34,7 +34,7 @@ shootings_bypolice <- read.csv("fatal-police-shootings-data.csv")
 
 ```
 
-I am filtering for the 2023 deaths and 2022 deaths. I want to compare them in my news story. First, I have to create a new column with the year using the mutate function. I also made sure to save the data with the new column. 
+I am filtering for the 2023 deaths and 2022 deaths. I want to compare them in my news story. First, I have to create a new column with the year using the mutate function. I also made sure to save the data with the new column.
 
 ```{r}
 
@@ -42,7 +42,6 @@ shootings_bypolice <- shootings_bypolice %>%
   mutate(year = year(date))
 
 ```
-
 
 ```{r}
 
@@ -53,8 +52,7 @@ shootings2023 <- shootings_bypolice %>%
 
 ```
 
-There have been 300 fatal shootings by police as of April 15, 2023. 
-Let's look closer at the 300th shooting. 
+There have been 300 fatal shootings by police as of April 15, 2023. Let's look closer at the 300th shooting.
 
 ```{r}
 
@@ -63,8 +61,65 @@ shootings2023 %>%
 
 ```
 
+Let's look at other characteristics of the shootings, like how many people were unarmed.
 
-Now, I want to see how many there were in 2022 total and by April 15. 
+```{r}
+
+shootings2023 %>% 
+  filter(armed_with == "unarmed")
+
+```
+
+I also want to see which states have the most fatal police shootings.
+
+```{r}
+
+shootings2023 %>% 
+  filter(year == 2023) %>% 
+  arrange(date) %>% 
+  head(300) %>% 
+  count(state) %>% 
+  arrange(desc(n))
+
+```
+
+I want to see how many people were armed with guns.
+
+```{r}
+shootings2023 %>% 
+  filter(armed_with == "gun")
+```
+
+I now want to see how many people were attacking police by looking at the threat type.
+
+```{r}
+shootings2023 %>% 
+  filter(threat_type == "attack")
+
+```
+
+I am also going to look at the races of the people who have been killed.
+
+```{r}
+
+shootings2023 %>% 
+  filter(race == "") %>% 
+  count()
+
+```
+
+```{r}
+shootings2023 %>% 
+  filter(race == "B") %>% 
+  count()
+```
+
+```{r}
+shootings2023 %>% 
+  filter(race == "W")
+```
+
+Now, I want to see how many there were in 2022 total and by April 15.
 
 ```{r}
 
@@ -77,9 +132,9 @@ shootings2022 %>%
 
 ```
 
-There were 1096 fatal shootings by police in 2022. After looking at the data, there were 323 fatal shootings by police as of 4/15/2022. 
+There were 1096 fatal shootings by police in 2022. After looking at the data, there were 323 fatal shootings by police as of 4/15/2022.
 
-Let's take a closer look at that 323rd fatal shooting. 
+Let's take a closer look at that 323rd fatal shooting.
 
 ```{r}
 
@@ -87,8 +142,124 @@ shootings2022 %>%
   filter(date == "2022-04-15")
 
 ```
-Here is the exact code I want to include in my story. 
 
+I want to see how many unarmed people were shot and killed by the 323rd shooting in 2022.
 
+```{r}
 
-#### Story Example: 
+shootings2022 %>% 
+  filter(date < "2022-04-16") %>% 
+  filter(armed_with == "unarmed")
+
+```
+
+Here is the exact code I want to include in my story.
+
+```{r}
+name300 <- shootings2023 %>% 
+  filter(date == "2023-04-15") %>% 
+  select(name)
+
+name300
+```
+
+```{r}
+age300 <- shootings2023 %>% 
+  filter(date == "2023-04-15") %>% 
+  select(age)
+```
+
+```{r}
+city300 <- shootings2023 %>% 
+  filter(date == "2023-04-15") %>% 
+  select(city)
+```
+
+```{r}
+armed_with_300 <- shootings2023 %>% 
+  filter(date == "2023-04-15") %>% 
+  select(armed_with)
+
+```
+
+```{r}
+unarmed23 <- shootings2023 %>% 
+  filter(armed_with == "unarmed") %>% 
+  count()
+  
+```
+
+```{r}
+wguns23 <- shootings2023 %>% 
+  filter(armed_with == "gun") %>% 
+  count()
+```
+
+```{r}
+cali23 <- shootings2023 %>% 
+  filter(year == 2023) %>% 
+  arrange(date) %>% 
+  head(300) %>% 
+  count(state) %>% 
+  arrange(desc(n)) %>% 
+  filter(state == "CA") %>% 
+  select(n)
+```
+
+```{r}
+black_23 <- shootings2023 %>% 
+  filter(race == "B") %>% 
+  count()
+```
+
+```{r}
+white_23 <- shootings2023 %>% 
+  filter(race == "W") %>% 
+  count()
+```
+
+```{r}
+shootings22total <- shootings_bypolice %>% 
+  filter(year == 2022) %>% 
+  count()
+```
+
+```{r}
+place22_323 <- shootings2022 %>% 
+  filter(date == "2022-04-15") %>% 
+  select(city)
+```
+
+```{r}
+name323 <- shootings2022 %>% 
+  filter(date == "2022-04-15") %>% 
+  select(name)
+```
+
+```{r}
+age323 <- shootings2022 %>% 
+  filter(date == "2022-04-15") %>% 
+  select(age)
+```
+
+```{r}
+armed_with_323 <- shootings2022 %>% 
+  filter(date == "2022-04-15") %>% 
+  select(armed_with)
+```
+
+#### Story Example:
+
+On Saturday, `r name300`, `r age300`, was shot and killed by police in `r city300`, making him the 300th person killed by police this year, according to data from The Washington Post. According to police reports, Clay was threatening officers and was armed with a `r armed_with_300` before retreating on foot.
+
+Police reports indicate there is body camera footage of the altercation. The story will be updated as more information becomes available. This is the fifth fatal shooting by police in Illinois in 2023.
+
+Of the 300 people fatally shot by police this year, `r unarmed23` were unarmed and `r wguns23` were armed with guns, according to The Washington Post's data. Fourteen of the 300 people attacked police, leading to the shooting.
+
+California, Texas and Florida police departments are responsible for the majority of 2023's fatal shootings, with a total of 96 between them. California police are responsible for `r cali23` of those deaths.
+
+The data provides racial information for 129 of the 300 people shot and killed by police. Of those whose race has been recorded, `r black_23` were Black and `r white_23` were white. The recorded data shows nearly 30% of the people fatally shot by police this year were Black. According to the U.S. Census, 13.6% of the United States is Black, indicating a disparity.
+
+In 2022, there were `r shootings22total` fatal shootings by police. On April 15, 2022, police in `r place22_323`, Kansas, shot and killed `r name323`, `r age323`. Barrow was the 323rd person fatally shot by police that year.
+
+Barrow had a similar altercation with police, as she was armed with a `r armed_with_323` and threatened officers. In her case, the data reports there was no body camera footage available.
